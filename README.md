@@ -89,7 +89,7 @@ SQLの書き方・実行先の決め方・Athena と PostgreSQL の注意点は�
 
 ## パラメータの渡し方
 
-TypeORM へは、次のように変換して渡します。Sequelize の `replacements` と同じ意味です。
+TypeORM へは、次のように変換して渡します。Sequelize の `replacements` と同じ意味です（空配列を NULL にするのは、Sequelize の実行役も同じです）。
 
 | SQL | 値 | TypeORM へ渡すSQL |
 | --- | --- | --- |

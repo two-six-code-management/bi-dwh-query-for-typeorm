@@ -40,7 +40,7 @@ test('同じ配列を2回使っても、どちらも展開する', () => {
     );
 });
 
-test('空配列は NULL にする（IN () の構文エラーを避ける。Sequelize と同じ）', () => {
+test('空配列は NULL にする（IN () の構文エラーを避ける。Sequelize の実行役も同じ）', () => {
     assert.deepEqual(
         expandArrayParams('SELECT * FROM t WHERE s IN (:systems)', {
             systems: [],
