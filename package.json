@@ -1,0 +1,56 @@
+{
+  "name": "bi-dwh-query-for-typeorm",
+  "version": "0.1.0",
+  "description": "bi-dwh-query-core を TypeORM（0.2 / 0.3 / 1.x、MySQL / PostgreSQL）で使うための RDS のSQL実行役。核の機能も再エクスポートする",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "default": "./dist/testing/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16.20.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --import tsx --test src/*.test.ts",
+    "test:integration": "node --import tsx --test --test-concurrency=1 src/integration/*.test.ts",
+    "build": "node scripts/build.mjs",
+    "prepare": "node scripts/build.mjs",
+    "format": "prettier --write \"src/**/*.ts\" \"scripts/**/*.mjs\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"scripts/**/*.mjs\""
+  },
+  "dependencies": {
+    "bi-dwh-query-core": "github:two-six-code-management/bi-dwh-query-core#v0.1.0"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-athena": ">=3.552.0",
+    "typeorm": "^0.2.0 || ^0.3.0 || ^1.0.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-athena": "3.552.0",
+    "@types/node": "20.19.43",
+    "mysql2": "3.24.6",
+    "pg": "8.23.1",
+    "prettier": "2.8.8",
+    "tsx": "4.23.15",
+    "typeorm": "0.3.20",
+    "typescript": "7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/two-six-code-management/bi-dwh-query-for-typeorm.git"
+  }
+}
